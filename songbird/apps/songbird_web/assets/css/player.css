@@ -1,0 +1,69 @@
+.player-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.left {
+  width: 70%;
+}
+
+.image-wrapper {
+  height: 400px;
+  width: 400px;
+  background: url("https://d1jfzjx68gj8xs.cloudfront.net/items/2R2L3s1v351z2C301B2K/image.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+/* song info */
+.song-info {
+  width: 100%;
+  font-family: Raleway;
+}
+
+.now-playing {
+  margin: 1rem 0 0;
+  color: #E02424;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.song-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.artist-name {
+  margin: 0 0 1rem;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+
+/* player controls */
+.player-controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

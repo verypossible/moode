@@ -1,3 +1,10 @@
 /* This file is for your main application css. */
 
-@import "./phoenix.css";
+/* Reset */
+@import "normalize.css";
+
+/* Base */
+@import "base.css";
+
+/* page / components */
+@import "player.css";
