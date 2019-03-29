@@ -23,11 +23,6 @@ config :songbird_web, SongbirdWeb.Endpoint,
       "--watch-stdin",
       cd: Path.expand("../assets", __DIR__)
     ]
-  ],
-  live_reload: [
-    patterns: [
-      ~r{lib/my_app_web/live/.*(ex)$}
-    ]
   ]
 
 # ## SSL Support
@@ -61,6 +56,7 @@ config :songbird_web, SongbirdWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/songbird_web/views/.*(ex)$},
-      ~r{lib/songbird_web/templates/.*(eex)$}
+      ~r{lib/songbird_web/templates/.*(eex)$},
+      ~r{lib/songird_web/live/.*(ex)$}
     ]
   ]

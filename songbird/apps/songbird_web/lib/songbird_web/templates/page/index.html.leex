@@ -12,16 +12,16 @@
         <h3 class="artist-name">Artist Name</h3>
       </div>
       <div class="player-controls">
-        <a href="/">
+        <a phx-click="previous" href="/">
           <%= img_tag("/images/icon-prev.svg", class: "control-icon") %>
         </a>
-        <a href="/">
+        <a phx-click="play" href="/">
           <%= img_tag("/images/icon-play.svg", class: "control-icon") %>
         </a>
         <%# <a href="/">
           <%= img_tag("/images/icon-pause.svg", class: "control-icon") %>
         <%# </a> %>
-        <a href="/">
+        <a phx-click="next" href="/">
           <%= img_tag("/images/icon-next.svg", class: "control-icon") %>
         </a>
       </div>
@@ -29,14 +29,17 @@
   </div>
 </section>
 
-<div class="live-viz">
-      Status: <%= @live_viz %>
+<div class="live-viz", style="display: none;">
+<%= @music_val %>
 </div>
 
 <script src="//d3js.org/d3.v3.min.js"></script>
+
 <script>
 
-var width = 960,
+var showPlayer = true;
+
+var width = 800,
     height = 500;
 
 var nodes = d3.range(200).map(function() { return {radius: Math.random() * 12 + 4}; }),
@@ -54,9 +57,10 @@ var force = d3.layout.force()
 
 force.start();
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("main").append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("class", "visualization");
 
 svg.selectAll("circle")
     .data(nodes.slice(1))
@@ -65,21 +69,30 @@ svg.selectAll("circle")
     .style("fill", function(d, i) { return d3.rgb(250, 67, 199); });
 
 force.on("tick", function(e) {
+  var value = document.querySelectorAll(".live-viz")[0].innerText
+  root.px = value * 400;
+  root.py = value * 400;
+
+  setVisibility(showPlayer)
+
   var q = d3.geom.quadtree(nodes),
       i = 0,
       n = nodes.length;
 
   while (++i < n) q.visit(collide(nodes[i]));
 
+
   svg.selectAll("circle")
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; });
+
+  force.resume();
 });
 
 svg.on("mousemove", function() {
   var p1 = d3.mouse(this);
-  root.px = p1[0];
-  root.py = p1[1];
+
+  showPlayer=true;
   force.resume();
 });
 
@@ -107,4 +120,21 @@ function collide(node) {
   };
 }
 
+function setVisibility(show) {
+    var container = document.querySelectorAll(".player-container")[0]
+    var vizContainer = document.querySelectorAll(".visualization")[0]
+    if (!show) {
+      container.style.display = "none";
+      vizContainer.style.display = "flex";
+    }
+    else {
+      container.style.display = "flex";
+      vizContainer.style.display = "none";
+    }
+  }
+
+setInterval(function () {showPlayer=false;}, 10000)
+
 </script>
+
+
