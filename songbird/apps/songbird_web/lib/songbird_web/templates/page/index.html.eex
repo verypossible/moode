@@ -1,5 +1,5 @@
 <section class="container">
-  <button class="back-button">back</button>
+  <button class="back-button" ontouchstart="">back</button>
   <div class="player-container">
     <section class="left">
       <div class="image-wrapper"></div>
@@ -12,16 +12,16 @@
         <h3 class="artist-name">Artist Name</h3>
       </div>
       <div class="player-controls">
-        <a href="/">
+        <a href="/" ontouchstart="">
           <%= img_tag("/images/icon-prev.svg", class: "control-icon") %>
         </a>
-        <a href="/">
+        <a href="/" ontouchstart="">
           <%= img_tag("/images/icon-play.svg", class: "control-icon") %>
         </a>
-        <%# <a href="/">
+        <%# <a href="/" ontouchstart="">
           <%= img_tag("/images/icon-pause.svg", class: "control-icon") %>
         <%# </a> %>
-        <a href="/">
+        <a href="/" ontouchstart="">
           <%= img_tag("/images/icon-next.svg", class: "control-icon") %>
         </a>
       </div>
