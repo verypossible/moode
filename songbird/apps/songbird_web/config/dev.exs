@@ -23,6 +23,11 @@ config :songbird_web, SongbirdWeb.Endpoint,
       "--watch-stdin",
       cd: Path.expand("../assets", __DIR__)
     ]
+  ],
+  live_reload: [
+    patterns: [
+      ~r{lib/my_app_web/live/.*(ex)$}
+    ]
   ]
 
 # ## SSL Support
