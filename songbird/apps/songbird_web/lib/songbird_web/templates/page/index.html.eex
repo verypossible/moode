@@ -1,4 +1,5 @@
 <section class="container">
+  <button class="back-button">back</button>
   <div class="player-container">
     <section class="left">
       <div class="image-wrapper"></div>
@@ -12,13 +13,16 @@
       </div>
       <div class="player-controls">
         <a href="/">
-          <%= img_tag("/images/icon-prev.svg", class: "prev-icon") %>
+          <%= img_tag("/images/icon-prev.svg", class: "control-icon") %>
         </a>
         <a href="/">
-          <%= img_tag("/images/icon-play.svg", class: "play-icon") %>
+          <%= img_tag("/images/icon-play.svg", class: "control-icon") %>
         </a>
+        <%# <a href="/">
+          <%= img_tag("/images/icon-pause.svg", class: "control-icon") %>
+        <%# </a> %>
         <a href="/">
-          <%= img_tag("/images/icon-next.svg", class: "next-icon") %>
+          <%= img_tag("/images/icon-next.svg", class: "control-icon") %>
         </a>
       </div>
     </section>
