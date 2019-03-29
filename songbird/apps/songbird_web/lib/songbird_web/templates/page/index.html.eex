@@ -11,7 +11,15 @@
         <h3 class="artist-name">Artist Name</h3>
       </div>
       <div class="player-controls">
-        <p>player controls here</p>
+        <a href="/">
+          <%= img_tag("/images/icon-prev.svg", class: "prev-icon") %>
+        </a>
+        <a href="/">
+          <%= img_tag("/images/icon-play.svg", class: "play-icon") %>
+        </a>
+        <a href="/">
+          <%= img_tag("/images/icon-next.svg", class: "next-icon") %>
+        </a>
       </div>
     </section>
   </div>
